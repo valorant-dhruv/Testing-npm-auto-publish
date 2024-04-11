@@ -1,7 +1,6 @@
 name: Auto publish updated npm packages
 on:
   push:
-  pull_request:
     branches:
       -main
 
@@ -10,5 +9,42 @@ jobs:
     name: Hello world
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.10.0
+        
       - name: Testing 
         run: echo 'Hello world'
+
+  publish:
+    name: Auto publish to npm
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs: [hello-world]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.10.0
+          
+      - name: Install dependencies
+        run: npm install
+
+      - name: Release latest package
+        run: npm run semantic-release
+        env: 
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      
+    
+    
+    
+    
