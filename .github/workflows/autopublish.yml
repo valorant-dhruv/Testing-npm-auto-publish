@@ -25,9 +25,9 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' }} && ${{ github.event.pull_request.merged == true }}
     needs: [hello-world]
     steps:
-      - name: Print Github object
-        run: |
-          echo "GitHub object: ${{github.event.pull_request.merged}}"
+      - name: Debug GitHub Context
+        run: echo "${{ toJson(github) }}"
+
       - name: Checkout
         uses: actions/checkout@v3
 
