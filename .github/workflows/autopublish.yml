@@ -26,7 +26,7 @@ jobs:
     needs: [hello-world]
     steps:
       - name: Debug GitHub Context
-        run: echo "${{ toJson(github) }}"
+        run: echo "${{ toJson(github.event.pull_request.merged) }}"
 
       - name: Checkout
         uses: actions/checkout@v3
