@@ -23,7 +23,7 @@ jobs:
   publish:
     name: Auto publish to npm
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/main' }} && github.event.pull_request.merged == true
+    # if: ${{ github.ref == 'refs/heads/main' }} && ${{ github.event.pull_request.merged == true }}
     needs: [hello-world]
     steps:
       - name: Print Github object
