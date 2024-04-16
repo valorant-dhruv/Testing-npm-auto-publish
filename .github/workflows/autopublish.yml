@@ -1,5 +1,6 @@
 name: Auto publish updated npm packages
 on:
+  push:
   pull_request:
     types: [closed]
 
@@ -26,7 +27,8 @@ jobs:
     needs: [hello-world]
     steps:
       - name: Print Github object
-        run: echo github
+        run: |
+          echo "GitHub object: ${{github.event}}"
       - name: Checkout
         uses: actions/checkout@v3
 
