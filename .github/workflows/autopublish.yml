@@ -28,7 +28,7 @@ jobs:
     steps:
       - name: Print Github object
         run: |
-          echo "GitHub object: ${{github.event}}"
+          echo "GitHub object: ${{github.github.event.pull_request.merged}}"
       - name: Checkout
         uses: actions/checkout@v3
 
