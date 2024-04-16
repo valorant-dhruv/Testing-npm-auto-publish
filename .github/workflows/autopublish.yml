@@ -1,6 +1,5 @@
 name: Auto publish updated npm packages
 on:
-  push:
   pull_request:
     types: [closed]
 
