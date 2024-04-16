@@ -1,6 +1,7 @@
 name: Auto publish updated npm packages
 on:
   push:
+  pull_request:
 
 jobs:
   hello-world:
@@ -21,7 +22,7 @@ jobs:
   publish:
     name: Auto publish to npm
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/main' }} && github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     needs: [hello-world]
     steps:
       - name: Checkout
