@@ -3,4 +3,9 @@ function printdhruv()
     console.log('Hey dhruv here 10');
 }
 
-module.exports={printdhruv};
+function printsomething()
+{
+    console.log("Adding a new feature");
+}
+
+module.exports={printdhruv,printsomething};
