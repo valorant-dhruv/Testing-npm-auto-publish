@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "semantic-release": "semantic-release --dry-run --no-ci --branches main",
+    "semantic-release": "semantic-release --no-ci --branches main",
     "commit":"git-cz"
   },
   "author": "",
