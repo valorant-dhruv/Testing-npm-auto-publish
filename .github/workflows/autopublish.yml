@@ -7,7 +7,6 @@ on:
 
 jobs:
   publish:
-    # if: ${{ github.ref == 'refs/heads/main' }} && ${{ github.event.pull_request.merged == true }}
     if: ${{ github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main' }}
     name: Auto publish to npm
     runs-on: ubuntu-latest
