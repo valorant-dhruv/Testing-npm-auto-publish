@@ -29,14 +29,9 @@ jobs:
         run: npm install
 
       - name: Semantic Release for npm package
-        id: dry-release
-        run: |
-          OUTPUT="$(bash -c "unset GITHUB_ACTIONS && npx semantic-release --dry-run --no-ci --branches '${BASE_REF}'")"
-          NEW_RELEASE_VERSION=$(echo "$OUTPUT" | grep -oP 'The next release version is \K(\d+\.\d+\.\d+)')
-          echo "new-release-version=$NEW_RELEASE_VERSION" >> "$GITHUB_OUTPUT"
+        run: npm run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BASE_REF: ${{ github.base_ref }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 
