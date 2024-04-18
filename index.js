@@ -1,6 +1,6 @@
 function printdhruv()
 {
-    console.log('Hey dhruv here 15');
+    console.log('Hey dhruv here 15')
 }
 
 function printsomething()
