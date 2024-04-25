@@ -6,6 +6,7 @@ function printdhruv()
 function printsomething()
 {
     console.log("Adding a new feature");
+    console.log("Adding another feature");
 }
 
 module.exports={printdhruv,printsomething};
